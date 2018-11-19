@@ -63,15 +63,40 @@ class _HomePageState extends State<HomePage> {
         return GridView.count(
             crossAxisCount: 2,
             padding: EdgeInsets.all(16.0),
+            childAspectRatio: 8.0 /9.0,
             children: <Widget>[
               Center(
                 child: Text('Hike 1'),
               ),
 
-              Text('Hike 2'),
+              Card(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    //Add Image
+                    AspectRatio(
+                        aspectRatio: 18 / 11.0,
+                        child: Image.asset('assets/hikingImages/garibaldi.jpeg', fit: BoxFit.scaleDown)),
+                    //Add divider
+                    //Add Name of hike
+                    //Add expandable information
+                    ExpansionTile(
+                      title: Text('sup 1'),
+                      children: <Widget>[
+                        Text('Sup 2'),
+                      ],
+
+                    )
+                  ],
+                ),
+
+              ),
               Text('Hike 3')
             ],
         );
+
+      default:
+        return Text('Nothing to see here yet!');
     }
   }
 
@@ -81,4 +106,5 @@ class _HomePageState extends State<HomePage> {
 
 
   //TODO: for home, card generator
+
 }
